@@ -1,11 +1,13 @@
 # Tranquille
 
+## What is Tranquille?
+
 Welcome to this [Transcrypt](https://github.com/QQuick/Transcrypt) + [Eel](https://github.com/ChrisKnott/Eel) boilerplate. 
 Eel makes you write python-based **simple electron-like applications**. 
 Transcrypt is a python -> js transpiler.
 Tranquille means *"calm"* in French, because this repository aims to diminish the hair-pulling process of developing and distributing cross-platform GUIs with python. This may also refer to the relief of avoiding to deal with javascript.
 
-# Why Transcrypt is a good teammate to Eel ?
+## Why Transcrypt is a good teammate to Eel ?
 
 Eel exposing mechanism makes Transcrypt a very good choice to write the front end in python, here is why :
 Eel does some adorable black magic (using bottle + websockets + parsing js files) to expose backend functions to the frontend **and reciprocally!**
@@ -30,7 +32,7 @@ During developpment, you can trick your IDE with fake imports like `if False: im
 
 From my understanding, Transcrypt is robust but incomplete (not the whole standard library is covered). This is a good fit here, because the core python tasks can be done on the back-end, while transcrypt is mainly dedicated to interact with the document. This is worth to mention that Transcrypt does not "lock you in", any javascript libaries can be imported and used seamlessly.
 
-# The example in this repository
+## The example in this repository
 
 This example can be seen as a follow-up of the [tutorial on jenkins.io](https://jenkins.io/doc/tutorials/build-a-python-app-with-pyinstaller/), where an amazing CLI is built and tested via Jenkins. This CLI allows the user to add values. Eel provides you the graphical interface you need for this program. It also adds a diary feature, where all your previous computations is displayed on the web page. You need to install `requirements-dev.txt` with your preferred tool, just like (`pipenv install --python=3.6 -r requirements-dev.txt`). Then, you can run the example with 
 ```bash
@@ -39,7 +41,7 @@ pipenv run python backend.py
 ```
 Two other requirement files are in this repository, they are used by the Dockerfiles (`DF_...`) for distributing and testing the application.  
 
-# CI-CD and cross-plateform builts
+## CI-CD and cross-plateform builts
 
 Eel repo suggests to use Pyinstaller to build cross-plateform GUI. The same is done here, except that built are done within docker containers controlled by Jenkins (itself running inside a docker container). The Jenkinsfile is largely based on a [good tutorial on jenkins.io](https://jenkins.io/doc/tutorials/build-a-python-app-with-pyinstaller/) showing how to use jenkins pipeline with pyinstaller. If you are not familiar with Jenkins Pipeline, I'd suggest to have a look on this tutorial. If you wish to work with jenkins installed locally, the script `runjenkins.sh` is taken from this tutorial, and should work on linux if the docker engine is installed, but you still have to configurate it to create a job which polls your git repository.
 
@@ -52,11 +54,11 @@ You can run Jenkins on docker with the bash script provided at the root (which i
 
 **Warning** : The whole things will download Gigs of docker images, be sure to have enough bandwith and room on your computer.
 
-# Why a fork of Eel is used in the requirements files?
+## Why a fork of Eel is used in the requirements files?
 
 The main reason is that I need eel to look inside some .py files to discover the front-end exposed functions. By the way, I picked this convention: to be found by eel, transcrypt files must end by `scrypt.py`. I have also added few features that I thought was relevant for the project. I hope some of my propositions will be integrated upstream. 
 
-# Issues / Help? / Todos
+## Issues / Help? / Todos
 
 - **Better discovering process** : In the future, as transcrypt is valid python code, one can totally think of an import strategy so that eel knows about exposed transcrypt functions without traversing and parsing the web directory (or maybe using [ast to find decorated functions](https://julien.danjou.info/python-ast-checking-method-declaration/)? 
 
@@ -68,15 +70,15 @@ The main reason is that I need eel to look inside some .py files to discover the
 
 - **Travis.CI**. I never used it, any nice PR is welcome, so that we could get a shiny "build pass" badge.
 
-- **Consenting Adults Mode**. What if, instead using `eel.expose`, eel would expose functions that are imported at the top level of the module. Just like the `fake import` trick I mentioned, but this time, for real.
-```
+- **Consenting Adults Mode**. What if, instead using `eel.expose`, eel would directly expose functions that are imported at the top level of the module. Just like the "fake import trick" I mentioned, but this time, for real.
+```python
 from frontendscrypt import logthis, grabthat
 
 logthis("hello)
 infos = grabthat("infos")
 ```
 and
-```
+```python
 from backend import storethis, retrievethat
 
 storethis("stuff")

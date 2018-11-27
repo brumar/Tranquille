@@ -72,6 +72,7 @@ The main reason is that I need eel to look inside some .py files to discover the
 
 - **Consenting Adults Mode**. What if, instead using `eel.expose`, eel would directly expose functions that are imported at the top level of the module. Just like the "fake import trick" I mentioned, but this time, for real.
 ```python
+#---backend.py---# 
 from frontendscrypt import logthis, grabthat
 
 logthis("hello)
@@ -79,6 +80,7 @@ infos = grabthat("infos")
 ```
 and
 ```python
+#---backendscrypt.py---# 
 from backend import storethis, retrievethat
 
 storethis("stuff")

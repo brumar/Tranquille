@@ -32,7 +32,11 @@ From my understanding, Transcrypt is robust but incomplete (not the whole standa
 
 # The example in this repository
 
-This example can be seen as a follow-up of the [tutorial on jenkins.io](https://jenkins.io/doc/tutorials/build-a-python-app-with-pyinstaller/), where an amazing CLI is built and tested via Jenkins. This CLI allows the user to add values. Eel provides you the graphical interface you need for this program. It also adds a diary feature, where all your previous computations is displayed on the web page. You need to install `requirements-dev.txt` with your preferred tool, just like (`pipenv install --python=3.6 -r requirements-dev.txt`). Then, you can run the example with `pipenv run python backend.py`.
+This example can be seen as a follow-up of the [tutorial on jenkins.io](https://jenkins.io/doc/tutorials/build-a-python-app-with-pyinstaller/), where an amazing CLI is built and tested via Jenkins. This CLI allows the user to add values. Eel provides you the graphical interface you need for this program. It also adds a diary feature, where all your previous computations is displayed on the web page. You need to install `requirements-dev.txt` with your preferred tool, just like (`pipenv install --python=3.6 -r requirements-dev.txt`). Then, you can run the example with 
+```bash
+cd sources
+pipenv run python backend.py
+```
 Two other requirement files are in this repository, they are used by the Dockerfiles (`DF_...`) for distributing and testing the application.  
 
 # CI-CD and cross-plateform builts

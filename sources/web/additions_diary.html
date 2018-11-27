@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Additions Diary</title>
+        
+        <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
+        <script type="text/javascript" src="/eel.js"></script>
+		<script type="module">import * as front from './__target__/frontendscrypt.js'; window.front = front;</script>
+        <script type="text/javascript">
+        
+
+        //eel.an_exposed_python_function();  // Call a Python function from js
+
+        </script>
+    </head>
+    
+    <body>
+        <h1>My Additions Diary</h1>
+		<h2>New addition</h2>
+		<input type="text" name="value_1"/>
+		<input type="text" name="value_2"/>
+		<button id="compute" onclick="front.frontcompute()">Add them!</button>
+		<div>
+			Result: <span id="result"></span>
+		</div>
+		<h2>My Diary</h2>
+		<p id="previous"></p>
+    </body>
+</html>

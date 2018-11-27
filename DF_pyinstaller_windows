@@ -1,0 +1,4 @@
+FROM cdrx/pyinstaller-windows:python3-32bit
+ADD requirements.txt /requirements.txt
+RUN pip install $(grep -ivE "eel" /requirements.txt)
+

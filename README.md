@@ -88,10 +88,22 @@ infos = grabthat("infos")
 ```
 and
 ```python
-#---backendscrypt.py---# 
+#---frontendscrypt.py---# 
 from backend import storethis, retrievethat
 
 storethis("stuff")
 infos = retrievethat("infos")
 ```
 That seems theoretically possible right? Ok, maybe there might a problem of circular import that should be figured out, but if this is done, that would seriously raise the black magic of Eel to another level. 
+
+Maybe a mad-scientist context manager could tame the python import mechanism by monkeypatching `builtins.__import` so that the functions mentionned are appended to the internal list of exposed functions.
+```python
+with eel.import_frontend_functions():
+    from frontendscrypt import animatestuff, anotherfunc
+```
+and
+```python
+with eel.import_front_functions():
+    from backend import backfunc, anotherfunc
+```
+But, instead of calling `eel.a_function()`, `a_function()` would be call directly, so one should bend eel (and also trick transcrypt) so that direct call would work...

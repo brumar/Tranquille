@@ -7,6 +7,14 @@ Eel makes you write python-based **simple electron-like applications**.
 Transcrypt is a python -> js transpiler.
 Tranquille means *"calm"* in French, because this repository aims to diminish the hair-pulling process of developing and distributing cross-platform GUIs with python. This may also refer to the relief of avoiding to deal with javascript.
 
+## What's there
+
+- A ready-to-use example that uses Transcrypt along Eel
+- CI-CD test & build (windows and linux) with jenkins
+
+![Screenshot](/screenshot.png?raw=true "Screenshot")
+
+
 ## Why Transcrypt is a good teammate to Eel ?
 
 Eel exposing mechanism makes Transcrypt a very good choice to write the front end in python, here is why :

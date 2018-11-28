@@ -1,6 +1,5 @@
 # Note that CPython will ignore all pragma's
 
-
 # __pragma__('skip')
 def __pragma__(*args, **kwargs) -> None:
     pass
@@ -15,36 +14,27 @@ __pragma__("skip")
 # Also, since imports are resolved in one pass, cyclic imports are not supported.
 alert = console = print
 document = None
-
-if False:
-    from web import hello as back
-    import sources.backend as eel
-
+import backend
 __pragma__("noskip")
 
 
 async def frontcompute():
     a = document.getElementsByName("value_1")[0].value
     b = document.getElementsByName("value_2")[0].value
-    v = await eel.compute(a, b)()
+    v = await backend.compute(a, b)()
     console.log(v)
     document.getElementById("result").innerHTML = v
-
-
-eel.expose(frontcompute)
 
 
 def logdone():
     alert("this has been logged")
 
 
-eel.expose(logdone)
-
+myvar = "hello"
 
 def show_previous_results(lines):
     el = document.getElementById("previous")
     el.innerHTML = "<br/>".join(lines)
 
-document.addEventListener("DOMContentLoaded", lambda e: eel.showpreviousvalues())
+document.addEventListener("DOMContentLoaded", lambda e: backend.showpreviousvalues())
 
-eel.expose(show_previous_results)

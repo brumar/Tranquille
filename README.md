@@ -107,3 +107,4 @@ with eel.import_front_functions():
     from backend import backfunc, anotherfunc
 ```
 But, instead of calling `eel.a_function()`, `a_function()` would be call directly, so one should bend eel (and also trick transcrypt) so that direct call would work...
+Edit : I have experimented a bit on a "consenting_adults branch", which works with the branch with the same name on my eel fork. Not as clean as I hoped, but that's a start!

@@ -26,7 +26,7 @@ pipeline {
                 dir("sources") {
                     sh 'rm -rf ./dist'
                     sh 'rm -rf ./build'
-		    sh 'pyinstaller backend.py --hidden-import bottle_websocket --add-data "eel.js:eel" --add-data "web/**:web" --add-data "web/additions_diary.html:web" --add-data "web/__target__/frontendscrypt.js:web/__target__" --add-data "web/__target__/org.transcrypt.__runtime__.js:web/__target__" --add-data "web/__target__/frontendscrypt.options:web/__target" --onefile 2>&1 | cat'
+		    sh 'pyinstaller backend.py --hidden-import bottle_websocket --add-data "eel.js:eel" --add-data "web/**:web" --add-data "web/additions_diary.html:web" --add-data "web/__target__/frontendscrypt.js:web/__target__" --add-data "web/__target__/org.transcrypt.__runtime__.js:web/__target__" --add-data "web/__target__/frontendscrypt.options:web/__target__" --onefile'
                     sh 'chmod +x dist/backend'
                 }
             }
@@ -48,7 +48,7 @@ pipeline {
 				sh 'pip install $(grep -iE "eel" requirements.txt) 2>&1 | cat' // to complete windows that can't install eel with git
 				sh 'rm -rf ./dist 2>&1 | cat'
 				sh 'rm -rf ./build 2>&1 | cat'
-				sh 'pyinstaller backend.py -n backend.exe --hidden-import bottle_websocket --add-data "eel.js;eel" --add-data "web/**;web" --add-data "web/additions_diary.html;web" --add-data "web/__target__/frontendscrypt.js;web/__target__" --add-data "web/__target__/org.transcrypt.__runtime__.js;web/__target__" --add-data "web/__target__/frontendscrypt.options;web/__target" --onefile 2>&1 | cat'
+				sh 'pyinstaller backend.py -n backend.exe --hidden-import bottle_websocket --add-data "eel.js;eel" --add-data "web/**;web" --add-data "web/additions_diary.html;web" --add-data "web/__target__/frontendscrypt.js;web/__target__" --add-data "web/__target__/org.transcrypt.__runtime__.js;web/__target__" --add-data "web/__target__/frontendscrypt.options;web/__target__" --onefile 2>&1 | cat'
 				sh 'chmod +x dist/backend.exe'
 		}
             }

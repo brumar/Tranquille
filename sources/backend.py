@@ -30,6 +30,7 @@ web_app_options = {
     "port": 8000,
     "chromeFlags": [
         "--start-fullscreen",
+        "--browser-startup-dialog",
         "-disable-application-cache",
         "–media-cache-size=1",
         "--disk-cache-dir=/dev/null",
@@ -41,7 +42,7 @@ web_app_options = {
 def log_result_in_file(v1, v2, result):
     with open("./log.txt", "a") as lg:
         lg.write(f"{v1} + {v2} = {result}\r\n")
-        logdone()
+        #logdone()
 
 @eel.expose
 def showpreviousvalues():

@@ -2,7 +2,7 @@ atomicwrites==1.2.1
 gevent==1.2.2
 bottle==0.12.13
 bottle-websocket==0.2.9
-git+https://github.com/brumar/Eel.git@consenting_adults#egg=Eel
+git+https://github.com/brumar/Eel.git@f39c9e45ff45b29c27a79f62431025cd1c185e84#egg=Eel
 future==0.17.1
 gevent-websocket==0.10.1
 greenlet==0.4.15

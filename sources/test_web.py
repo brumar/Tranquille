@@ -1,3 +1,4 @@
+""" For a stronger separation, eel import is removed"""
 import pytest
 import time
 import os
@@ -33,13 +34,10 @@ def wait_for(condition_function, selenium, delay=3):
 
 
 def test_interface(selenium):
-    # if not -> already launched
     selenium.get("http://localhost:8000/additions_diary.html")
-
     wait_for(wait_for_value1, selenium, delay=10)
     selenium.execute_script("document.getElementsByName('value_1')[0].value='6'")
     selenium.execute_script("document.getElementsByName('value_2')[0].value='10'")
     selenium.find_element_by_id("compute").click()
-    assert True
-    # time.sleep(4)
-    #assert "16" in selenium.find_element_by_id("result").get_attribute('innerHTML')
+    time.sleep(4)
+    assert "16" in selenium.find_element_by_id("result").get_attribute('innerHTML')

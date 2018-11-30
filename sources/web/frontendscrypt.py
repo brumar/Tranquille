@@ -27,10 +27,9 @@ async def frontcompute():
 
 
 def logdone():
-    alert("this has been logged")
+    console.log("this has been logged")
 
 
-myvar = "hello"
 
 def show_previous_results(lines):
     el = document.getElementById("previous")

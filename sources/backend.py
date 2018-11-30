@@ -40,7 +40,7 @@ web_app_options = {
 def log_result_in_file(v1, v2, result):
     with open("./log.txt", "a") as lg:
         lg.write(f"{v1} + {v2} = {result}\r\n")
-        logdone()
+        #logdone()
 
 @eel.expose
 def showpreviousvalues():
@@ -63,8 +63,8 @@ def restart(page, websockets):
 
 def start(block=True, webpath="web", alive=False):
     eel.init(webpath, search_exposed_js=False, search_into_imports=True)  # Give folder containing web files
-    eel.register_backend_names(["backend"])
-    eel.register_frontend_js_files(["web/__target__/frontendscrypt.js"])
+    eel.register_backend_names(["backend"]) # hopefully, I could get rid of this line ?
+    eel.register_frontend_js_files(["web/__target__/frontendscrypt.js"]) # same
     eel.start(
         "additions_diary.html",
         size=(300, 200),

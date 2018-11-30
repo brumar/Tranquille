@@ -19,18 +19,16 @@ if False:
 
 # KEEP THIS STRUCTURE EACH TIME YOU IMPORT FRONT END FUNCTIONS
 with eel.import_frontend_functions():
-    # warning. this wont work : from web.frontendscrypt import show_previous_results, logdone
+    # warning. this wont work -> from web.frontendscrypt import show_previous_results, logdone
     # My patching of __import__ fails when doing so
     # Any idea how to fix it
-    from web.frontendscrypt import show_previous_results
-    from web.frontendscrypt import logdone
+    from web.frontendscrypt import show_previous_results, logdone
 
 web_app_options = {
     "mode": "chromium",  # or "chrome"
     "port": 8000,
     "chromeFlags": [
         "--start-fullscreen",
-        "--browser-startup-dialog",
         "-disable-application-cache",
         "–media-cache-size=1",
         "--disk-cache-dir=/dev/null",
@@ -42,7 +40,7 @@ web_app_options = {
 def log_result_in_file(v1, v2, result):
     with open("./log.txt", "a") as lg:
         lg.write(f"{v1} + {v2} = {result}\r\n")
-        #logdone()
+        logdone()
 
 @eel.expose
 def showpreviousvalues():

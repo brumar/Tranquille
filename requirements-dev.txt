@@ -3,7 +3,7 @@ gevent==1.2.2
 attrs==18.2.0
 bottle==0.12.13
 bottle-websocket==0.2.9
-git+https://github.com/brumar/Eel.git@consenting_adults#egg=Eel
+git+https://github.com/brumar/Eel.git@74191ebcd27cb7f2d24f87e700e91f40aa90d5d0#egg=Eel
 certifi==2018.10.15
 chardet==3.0.4
 future==0.17.1

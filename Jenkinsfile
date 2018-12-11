@@ -66,8 +66,9 @@ pipeline {
             }
             steps {
 	    			unstash 'linuxbuilt'
-				sh './sources/dist/backend &'
+				sh './sources/dist/backend & > logs_backend.txt'
 				sh 'py.test sources/test_web.py --driver Chrome --verbose --junit-xml test-reports/results.xml'
+				sh 'cat logs_backend.txt'
 		}
 	    post {
 		always {

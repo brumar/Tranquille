@@ -12,9 +12,10 @@ __pragma__("skip")
 # This means that imports cannot be runtime conditional, so e.g. cannot be under an if.
 # For compiletime conditional imports you can use __pragma__ (‘ifdef’).
 # Also, since imports are resolved in one pass, cyclic imports are not supported.
-alert = console = print
-document = None
-import backend
+from browser import document, console
+import eel_for_transcrypt as eel
+with eel.import_backend_modules(already_imported=True):
+    import backend
 __pragma__("noskip")
 
 

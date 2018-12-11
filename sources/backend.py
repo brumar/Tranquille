@@ -1,7 +1,7 @@
 import calc
 import sys
 import re
-import eel
+import eel_for_transcrypt as eel
 import os
 
 # IMPORTANT
@@ -13,8 +13,6 @@ import os
 DEV = os.getenv("ENV", "PROD") == "DEV"
 if DEV:
     from transcrypt.__main__ import main as transpile
-if False:
-    import web.frontendscrypt as eel
 
 
 # KEEP THIS STRUCTURE EACH TIME YOU IMPORT FRONT END FUNCTIONS
@@ -40,7 +38,7 @@ web_app_options = {
 def log_result_in_file(v1, v2, result):
     with open("./log.txt", "a") as lg:
         lg.write(f"{v1} + {v2} = {result}\r\n")
-        #logdone()
+        logdone()
 
 @eel.expose
 def showpreviousvalues():

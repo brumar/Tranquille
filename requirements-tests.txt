@@ -1,6 +1,6 @@
 atomicwrites==1.2.1
 attrs==18.2.0
-bottle==0.12.13
+bottle==0.12.20
 bottle-websocket==0.2.9
 certifi==2018.10.15
 chardet==3.0.4

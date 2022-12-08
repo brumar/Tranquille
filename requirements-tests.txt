@@ -2,7 +2,7 @@ atomicwrites==1.2.1
 attrs==18.2.0
 bottle==0.12.13
 bottle-websocket==0.2.9
-certifi==2018.10.15
+certifi==2022.12.7
 chardet==3.0.4
 Eel==0.9.10
 future==0.17.1

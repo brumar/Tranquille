@@ -4,7 +4,7 @@ attrs==18.2.0
 bottle==0.12.13
 bottle-websocket==0.2.9
 git+https://github.com/brumar/Eel.git@transcryptsupport#egg=Eel
-certifi==2018.10.15
+certifi==2022.12.7
 chardet==3.0.4
 future==0.17.1
 gevent-websocket==0.10.1
